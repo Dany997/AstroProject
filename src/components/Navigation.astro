@@ -1,0 +1,38 @@
+---
+import '../styles/main.scss';
+---
+
+<nav class="navbar">
+    <div class="logo">
+        <a href="/">⚡ DevPortfolio</a>
+    </div>
+    
+    <!-- 🔽 Ikona burgera -->
+    <div class="burger-menu" id="burger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- 🔽 Lista nawigacji -->
+    <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/projects">Projekty</a></li>
+        <li><a href="/about">O mnie</a></li>
+        <li><a href="/contact">Kontakt</a></li>
+    </ul>
+</nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const burgerMenu = document.getElementById("burger-menu");
+        const navLinks = document.getElementById("nav-links");
+
+        // Sprawdzamy, czy elementy istnieją
+        if (burgerMenu && navLinks) {
+            burgerMenu.addEventListener("click", function() {
+                navLinks.classList.toggle("open");
+            });
+        }
+    });
+</script>

@@ -1,0 +1,83 @@
+@use './variables';
+@use './navigation';
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: black;
+	color: #00ffcc;
+	font-family: 'Press Start 2P', cursive;
+	text-transform: uppercase;
+	text-shadow: 0 0 5px #00ffcc, 0 0 10px #009988;
+	overflow: hidden;
+	position: relative;
+}
+
+/* 🟢 1. Efekt poziomych pasków CRT */
+body::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(0, 0, 0, 0.15) 50%, transparent 50%);
+	background-size: 100% 4px; /* Wysokość pasków */
+	pointer-events: none;
+	z-index: 1;
+}
+
+/* 🔵 2. Efekt lekkiego "migania" ekranu */
+@keyframes crtFlicker {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.9;
+	}
+}
+
+body::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.05);
+	animation: crtFlicker 0.15s infinite;
+	pointer-events: none;
+	z-index: 2;
+}
+
+/* 🟡 3. Opcjonalny efekt glitch */
+@keyframes glitch {
+	0% {
+		transform: translate(0, 0);
+	}
+	20% {
+		transform: translate(-2px, 1px);
+	}
+	40% {
+		transform: translate(2px, -1px);
+	}
+	60% {
+		transform: translate(-1px, 2px);
+	}
+	80% {
+		transform: translate(1px, -2px);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+.crt-glitch {
+	animation: glitch 0.2s infinite;
+}

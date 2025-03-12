@@ -1,0 +1,164 @@
+@use './variables';
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background: #111;
+	border-bottom: 4px solid #00ffcc;
+	box-shadow: 0px 4px 8px rgba(0, 255, 204, 0.6);
+	position: relative;
+}
+
+/* Neonowy efekt na logo */
+.logo a {
+	font-size: 1.2rem;
+	text-decoration: none;
+	color: #00ffcc;
+	text-shadow: 0px 0px 8px #00ffaa;
+}
+
+/* Nawigacja */
+.nav-links {
+	list-style: none;
+	display: flex;
+	gap: 20px;
+	transition: all 0.3s;
+}
+
+.nav-links li a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 0.9rem;
+	padding: 10px 15px;
+	background: #222;
+	border: 2px solid #00ffcc;
+	box-shadow: inset 2px 2px 0px #00ffaa, inset -2px -2px 0px #009988;
+	transition: all 0.2s;
+}
+
+.nav-links li a:hover {
+	background: #00ffcc;
+	color: black;
+	text-shadow: 0px 0px 5px white;
+	box-shadow: inset 2px 2px 0px #009988, inset -2px -2px 0px #00ffaa;
+}
+
+/* 🔽 Burger menu */
+.burger-menu {
+	display: none;
+	flex-direction: column;
+	gap: 5px;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.burger-menu span {
+	width: 30px;
+	height: 4px;
+	background: #00ffcc;
+	box-shadow: 0px 0px 5px #00ffaa;
+	transition: all 0.3s ease-in-out;
+}
+
+// ------------------------------------------------------------
+
+/* 🔽 Mobile menu (max-width: 768px) */
+@media (max-width: 768px) {
+	.burger-menu {
+		display: flex;
+	}
+
+	.nav-links {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background: #111;
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+		padding: 20px 0;
+		border-top: 2px solid #00ffcc;
+		border-bottom: 2px solid #00ffcc;
+		transform: translateY(-100%);
+		opacity: 0;
+		transition: transform 0.3s, opacity 0.3s;
+		gap: 30px;
+	}
+
+	.nav-links::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(rgba(0, 0, 0, 0.15) 50%, transparent 50%);
+		background-size: 100% 4px; /* Wysokość pasków */
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	/* 🔵 2. Efekt lekkiego "migania" ekranu */
+	@keyframes crtFlicker {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.9;
+		}
+	}
+
+	.nav-links::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.05);
+		animation: crtFlicker 0.15s infinite;
+		pointer-events: none;
+		z-index: 2;
+	}
+
+	.nav-links.open {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	/* Efekt animacji burgera */
+	.burger-menu.open span:nth-child(1) {
+		transform: rotate(45deg) translate(50px, 5px);
+	}
+	.burger-menu.open span:nth-child(2) {
+		opacity: 0;
+	}
+	.burger-menu.open span:nth-child(3) {
+		transform: rotate(-45deg) translate(5px, -5px);
+	}
+}
+
+@media (max-width: 1024px) {
+	.nav-links {
+		gap: 15px; // Zmniejszamy odstępy między przyciskami
+	}
+
+	.logo a {
+		font-size: 1rem; // Zmniejszamy czcionkę logo
+	}
+
+	.burger-menu {
+		width: 35px; // Trochę większy burger na tabletach
+	}
+
+	.burger-menu span {
+		width: 35px;
+	}
+
+	.navbar {
+		padding: 15px;
+	}
+}
