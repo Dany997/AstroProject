@@ -1,23 +1,13 @@
+
 ---
 import NewLayout from "../../layouts/newLayout.astro";
-export const prerender = false; // ❌ Wyłączamy prerendering tylko dla tej strony (reszta strony działa normalnie jako statyczna)
 
-const projectId: string = Astro.params.id ?? ""; // Upewniamy się, że ID to string
+const { id } = Astro.params;
+const response = await fetch(`http://localhost:5000/projects/${id}`);
+const project = await response.json();
 
-// Funkcja do pobierania danych (możesz później podpiąć API)
-async function getProjectData(id: string): Promise<{ title: string; description: string }> {
-  const projects: Record<string, { title: string; description: string }> = {
-    "1": { title: "Strona Portfolio", description: "Minimalistyczne portfolio w Astro." },
-    "2": { title: "Aplikacja To-Do", description: "Lista zadań z backendem w Node.js." },
-    "3": { title: "Sklep Online", description: "E-commerce w Next.js." }
 
-  };
 
-  return projects[id] ?? { title: "Nie znaleziono", description: "Ten projekt nie istnieje." };
-}
-
-// Pobieramy dane dynamicznie
-const project = await getProjectData(projectId);
 ---
 
 <head>

@@ -1,0 +1,19 @@
+{
+	"projects": [
+		{
+			"id": "jeden",
+			"title": "Strona Portfolio",
+			"description": "Minimalistyczne portfolio w Astro."
+		},
+		{
+			"id": "dwa",
+			"title": "Aplikacja To-Do",
+			"description": "Lista zadań z backendem w Node.js."
+		},
+		{
+			"id": "trzy",
+			"title": "Sklep Online",
+			"description": "E-commerce w Next.js."
+		}
+	]
+}
