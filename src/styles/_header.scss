@@ -1,0 +1,99 @@
+@use './variables';
+
+.hero {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 50px;
+	min-height: 80vh;
+	background: #111;
+	position: relative;
+	overflow: hidden;
+}
+
+.hero-content {
+	max-width: 50%;
+	text-align: left;
+}
+
+.hero-content h1 {
+	font-size: 2.5rem;
+	color: #00ffcc;
+	text-shadow: 0 0 10px #00ffaa;
+}
+
+.hero-content p {
+	font-size: 1.2rem;
+	color: #00ffaa;
+	text-shadow: 0 0 5px #009988;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.hero-content h1,
+.hero-content p {
+	opacity: 0;
+	animation: fadeIn 1s ease-out forwards;
+}
+
+.hero-content h1 {
+	animation-delay: 0.3s;
+}
+
+.hero-content p {
+	animation-delay: 0.6s;
+}
+
+.hero-image img {
+	max-width: 600px;
+	filter: contrast(1.2) brightness(1.1) drop-shadow(0px 0px 10px #00ffaa);
+}
+
+@media (max-width: 1024px) {
+	// Tablety
+	.hero {
+		flex-direction: column;
+		height: auto;
+		padding: 30px;
+		text-align: center;
+	}
+
+	.hero-content {
+		max-width: 80%;
+		text-align: center;
+	}
+
+	.hero-image img {
+		padding: 20px;
+		max-width: 400px;
+	}
+}
+
+@media (max-width: 768px) {
+	// Telefony
+	.hero {
+		padding: 20px;
+	}
+
+	.hero-content h1 {
+		font-size: 2rem;
+	}
+
+	.hero-content p {
+		font-size: 1rem;
+	}
+
+	.hero-image img {
+		padding: 20px;
+		max-width: 300px;
+	}
+}

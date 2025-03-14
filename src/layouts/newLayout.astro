@@ -1,6 +1,7 @@
 ---
 import '../styles/main.scss';
 import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <!DOCTYPE html>
@@ -8,13 +9,18 @@ import Navigation from '../components/Navigation.astro';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strona Artysty</title>
+    <title>John Doe</title>
 </head>
 <body>
    <header>
 <Navigation/>
 
    </header>
-    <slot />
+   <slot />
+</div>
+<footer>
+<Footer/>
+
+</footer>
 </body>
 </html>

@@ -1,0 +1,156 @@
+@use 'variables'; // Import zmiennych, jeśli ich używasz
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+.contact-page {
+	padding: 20px;
+	text-align: center;
+	background-color: #111;
+
+	.contact-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-width: 800px;
+		margin: 0 auto;
+
+		h1 {
+			font-size: 2rem;
+			margin-bottom: 10px;
+			text-shadow: 0 0 5px #00ffcc, 0 0 10px #009988;
+		}
+
+		p {
+			font-size: 1rem;
+			line-height: 1.6;
+			text-shadow: 0 0 3px #00ffcc;
+		}
+
+		.contact-info {
+			margin-top: 20px;
+
+			p {
+				font-size: 1rem;
+				margin-bottom: 10px;
+
+				strong {
+					color: #00ffcc;
+				}
+
+				a {
+					color: #00ffcc;
+					text-decoration: none;
+				}
+			}
+		}
+
+		.social-links {
+			margin-top: 20px;
+
+			ul {
+				list-style: none;
+				padding: 0;
+
+				li {
+					margin-bottom: 10px;
+
+					a {
+						color: #00ffcc;
+						text-decoration: none;
+
+						i {
+							margin-right: 5px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Animacja pojawiania się elementów */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.contact-page .contact-section h1 {
+	opacity: 0;
+	animation: fadeIn 1s ease-out forwards;
+	animation-delay: 0.1s;
+}
+
+.contact-page .contact-section p {
+	opacity: 0;
+	animation: fadeIn 1s ease-out forwards;
+	animation-delay: 0.3s;
+}
+
+.contact-page .contact-section .contact-info {
+	opacity: 0;
+	animation: fadeIn 1s ease-out forwards;
+	animation-delay: 0.5s;
+}
+
+.contact-page .contact-section .social-links {
+	opacity: 0;
+	animation: fadeIn 1s ease-out forwards;
+	animation-delay: 0.7s;
+}
+
+/* Media queries dla tabletów */
+@media (max-width: 1024px) {
+	.contact-page {
+		padding: 15px;
+
+		.contact-section {
+			max-width: 600px;
+
+			h1 {
+				font-size: 1.8rem;
+			}
+
+			p {
+				font-size: 0.9rem;
+			}
+
+			.contact-info p {
+				font-size: 0.9rem;
+			}
+
+			.social-links ul li {
+				font-size: 0.9rem;
+			}
+		}
+	}
+}
+
+/* Media queries dla telefonów */
+@media (max-width: 768px) {
+	.contact-page {
+		padding: 10px;
+
+		.contact-section {
+			max-width: 400px;
+
+			h1 {
+				font-size: 1.5rem;
+			}
+
+			p {
+				font-size: 0.8rem;
+			}
+
+			.contact-info p {
+				font-size: 0.8rem;
+			}
+
+			.social-links ul li {
+				font-size: 0.8rem;
+			}
+		}
+	}
+}

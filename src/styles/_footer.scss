@@ -1,0 +1,42 @@
+@use 'variables';
+
+.footer {
+	background: #111;
+	color: #00ffcc;
+	text-align: center;
+	padding: 20px;
+	border-top: 4px solid #00ffcc;
+	box-shadow: 0px -4px 8px rgba(0, 255, 204, 0.6);
+	position: relative;
+	font-size: 0.9rem;
+	text-shadow: 0px 0px 5px #00ffaa;
+}
+
+.footer-content {
+	max-width: 80%;
+	margin: 0 auto;
+	opacity: 0;
+	animation: fadeIn 1s ease-out forwards;
+	animation-delay: 1s;
+}
+
+.footer p {
+	animation: flicker 2s infinite;
+}
+
+/* 🔽 Responsywność */
+@media (max-width: 1024px) {
+	// Tablety
+	.footer {
+		font-size: 0.8rem;
+		padding: 15px;
+	}
+}
+
+@media (max-width: 768px) {
+	// Telefony
+	.footer {
+		font-size: 0.7rem;
+		padding: 10px;
+	}
+}

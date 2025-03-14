@@ -1,0 +1,110 @@
+@use 'variables'; // Import zmiennych, jeśli ich używasz
+
+.about-page {
+	padding: 20px;
+	text-align: center;
+	background-color: #111;
+
+	.about-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-width: 800px;
+		margin: 0 auto;
+
+		.avatar {
+			margin-bottom: 20px;
+
+			img {
+				width: 150px;
+				height: 150px;
+				border-radius: 50%;
+				border: 4px solid #00ffcc;
+				box-shadow: 0 0 10px rgba(0, 255, 204, 0.6);
+				opacity: 0; // Początkowo niewidoczne
+
+				animation: fadeIn 1s ease-out forwards;
+				animation-delay: 0.1s; // Opóźnienie startu animacji
+			}
+		}
+
+		.bio {
+			h1 {
+				font-size: 2rem;
+				margin-bottom: 10px;
+				text-shadow: 0 0 5px #00ffcc, 0 0 10px #009988;
+				opacity: 0; // Początkowo niewidoczne
+
+				animation: fadeIn 1s ease-out forwards;
+				animation-delay: 0.4s; // Opóźnienie startu animacji
+			}
+
+			p {
+				font-size: 1rem;
+				line-height: 1.6;
+				text-shadow: 0 0 3px #00ffcc;
+				opacity: 0; // Początkowo niewidoczne
+
+				animation: fadeIn 1s ease-out forwards;
+				animation-delay: 0.7s; // Opóźnienie startu animacji
+			}
+		}
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Media queries dla tabletów */
+@media (max-width: 1024px) {
+	.about-page {
+		padding: 15px;
+
+		.about-section {
+			max-width: 600px;
+
+			.avatar img {
+				width: 120px;
+				height: 120px;
+			}
+
+			.bio h1 {
+				font-size: 1.8rem;
+			}
+
+			.bio p {
+				font-size: 0.9rem;
+			}
+		}
+	}
+}
+
+/* Media queries dla telefonów */
+@media (max-width: 768px) {
+	.about-page {
+		padding: 10px;
+
+		.about-section {
+			max-width: 400px;
+
+			.avatar img {
+				width: 90px;
+				height: 90px;
+			}
+
+			.bio h1 {
+				font-size: 1.5rem;
+			}
+
+			.bio p {
+				font-size: 0.8rem;
+			}
+		}
+	}
+}
