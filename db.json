@@ -1,19 +1,35 @@
 {
 	"projects": [
 		{
-			"id": "jeden",
+			"id": 1,
 			"title": "Strona Portfolio",
 			"description": "Minimalistyczne portfolio w Astro."
 		},
 		{
-			"id": "dwa",
+			"id": 2,
 			"title": "Aplikacja To-Do",
 			"description": "Lista zadań z backendem w Node.js."
 		},
 		{
-			"id": "trzy",
+			"id": 3,
 			"title": "Sklep Online",
 			"description": "E-commerce w Next.js."
+		}
+	],
+	"blogs": [
+		{
+			"id": 1,
+			"title": "Jak zacząć z Astro?",
+			"content": "Astro to nowoczesny framework do budowy stron...",
+			"author": "John Doe",
+			"date": "2024-03-13"
+		},
+		{
+			"id": 2,
+			"title": "Server Side Rendering w praktyce",
+			"content": "SSR pozwala generować strony dynamicznie...",
+			"author": "Jane Doe",
+			"date": "2024-03-12"
 		}
 	]
 }

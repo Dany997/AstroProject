@@ -1,0 +1,27 @@
+---
+const { id } = Astro.params;
+const response = await fetch(`http://localhost:5000/blogs/${id}`);
+const blog = await response.json();
+import NewLayout from "../../layouts/newLayout.astro";
+---
+
+<head>
+    <!DOCTYPE html>
+    <html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{blog.title} - John Doe</title>
+  </head>
+
+<NewLayout>
+
+  <section class="blog-detail">
+    <h1>{blog.title}</h1>
+    <p><strong>{blog.author}</strong> - {blog.date}</p>
+    <article>
+      <p>{blog.content}</p>
+    </article>
+    <a href="/blog">🔙 Powrót do bloga</a>
+  </section>
+</NewLayout>

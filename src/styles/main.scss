@@ -6,6 +6,8 @@
 @use './contactPage';
 @use './projectsPage';
 @use './projectsSubPage';
+@use 'blogsPage';
+@use 'blogsSubPage';
 @use './project';
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
@@ -17,7 +19,7 @@
 }
 
 body {
-	background: black;
+	background: #111;
 	color: #00ffcc;
 	font-family: 'Press Start 2P', cursive;
 	text-transform: uppercase;

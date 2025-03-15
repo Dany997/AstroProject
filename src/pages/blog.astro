@@ -1,0 +1,57 @@
+<!-- ---
+const response = await fetch("http://localhost:5000/blogs");
+const blogs = await response.json();
+const project = { title: "Blogi" }; // Define the project variable
+import NewLayout from "../layouts/newLayout.astro";
+---
+
+<head>
+  <!DOCTYPE html>
+  <html lang="pl">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{project.title} - John Doe</title>
+</head>
+<NewLayout>
+  <section class="blog-list">
+    <h1>Blog</h1>
+    <ul>
+      {blogs.map((blog: { id: string; title: string; author: string; date: string }) => (
+        <li>
+          <a href={`/blog/${blog.id}`}>
+            <h2>{blog.title}</h2>
+            <p><strong>{blog.author}</strong> - {blog.date}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</NewLayout> -->
+
+---
+const response = await fetch('http://localhost:5000/blogs');
+const blogs: { id: string; title: string; author: string; date: string }[] = await response.json();
+
+import NewLayout from "../layouts/newLayout.astro";
+---
+
+
+
+<NewLayout>
+  <section class="blog-list">
+    <h1>Blog</h1>
+    <ul>
+      {blogs.map((blog: { id: string; title: string; author: string; date: string }) => (
+        <li>
+          <a href={`/blog/${blog.id}`}>
+            <h2>{blog.title}</h2>
+            <p><strong>{blog.author}</strong> - {blog.date}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</NewLayout>
+
+

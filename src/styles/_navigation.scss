@@ -145,6 +145,10 @@
 @media (max-width: 1024px) {
 	.nav-links {
 		gap: 15px; // Zmniejszamy odstępy między przyciskami
+
+		li a {
+			font-size: 0.6rem;
+		}
 	}
 
 	.logo a {
