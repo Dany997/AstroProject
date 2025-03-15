@@ -19,6 +19,10 @@
 }
 
 body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; /* Pełna wysokość ekranu */
+	overflow-x: hidden; /* Żeby nie było poziomego scrolla */
 	background: #111;
 	color: #00ffcc;
 	font-family: 'Press Start 2P', cursive;
@@ -26,6 +30,10 @@ body {
 	text-shadow: 0 0 5px #00ffcc, 0 0 10px #009988;
 	overflow: hidden;
 	position: relative;
+}
+
+.content-wrapper {
+	flex-grow: 1; /* Główna zawartość rośnie, wypychając footer na dół */
 }
 
 /* 🟢 1. Efekt poziomych pasków CRT */

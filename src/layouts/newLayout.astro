@@ -2,6 +2,7 @@
 import '../styles/main.scss';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
+
 ---
 
 <!DOCTYPE html>
@@ -12,15 +13,14 @@ import Footer from '../components/Footer.astro';
     <title>John Doe</title>
 </head>
 <body>
-   <header>
-<Navigation/>
+    <header>
+        <Navigation/>
+    </header>
 
-   </header>
-   <slot />
-</div>
-<footer>
-<Footer/>
+    <main class="content-wrapper">  <!-- Dodany kontener na treść -->
+        <slot />
+    </main>
 
-</footer>
+    <Footer/>  <!-- Footer umieszczony na końcu body -->
 </body>
 </html>

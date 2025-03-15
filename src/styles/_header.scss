@@ -5,7 +5,6 @@
 	justify-content: space-between;
 	align-items: center;
 	padding: 50px;
-	min-height: 80vh;
 	background: #111;
 	position: relative;
 	overflow: hidden;
@@ -95,5 +94,13 @@
 	.hero-image img {
 		padding: 20px;
 		max-width: 300px;
+	}
+}
+
+// -------------------------
+@media (max-width: 320px) {
+	.hero-image img {
+		padding: 20px;
+		max-width: 200px;
 	}
 }

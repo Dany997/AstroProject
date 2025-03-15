@@ -51,21 +51,21 @@
 	}
 }
 
-/* Tablet */
+/* Tablets */
 @media (max-width: 768px) {
 	.projects {
-		padding: 30px;
+		padding: 40px;
 
 		h1 {
 			font-size: 2rem;
 		}
 
 		ul {
-			max-width: 500px;
+			max-width: 90%;
 		}
 
 		li {
-			padding: 15px;
+			padding: 16px;
 		}
 
 		h2 {
@@ -73,7 +73,7 @@
 		}
 
 		p {
-			font-size: 0.95rem;
+			font-size: 1rem;
 		}
 	}
 }
@@ -102,6 +102,33 @@
 
 		p {
 			font-size: 0.9rem;
+		}
+	}
+}
+
+/* Small phones*/
+@media (max-width: 320px) {
+	.projects {
+		padding: 15px;
+
+		h1 {
+			font-size: 1.5rem;
+		}
+
+		ul {
+			gap: 10px;
+		}
+
+		li {
+			padding: 10px;
+		}
+
+		h2 {
+			font-size: 1.2rem;
+		}
+
+		p {
+			font-size: 0.8rem;
 		}
 	}
 }

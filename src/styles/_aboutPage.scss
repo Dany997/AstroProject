@@ -108,3 +108,18 @@
 		}
 	}
 }
+
+@media (max-width: 320px) {
+	.about-page {
+		.about-section {
+			.bio {
+				h1 {
+					font-size: 1rem;
+				}
+				p {
+					font-size: 0.6rem;
+				}
+			}
+		}
+	}
+}
