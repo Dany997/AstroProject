@@ -1,4 +1,5 @@
 ---
+
 const response = await fetch('https://astroproject-production.up.railway.app/api/projects')
 const projects: { id: string; title: string; description: string }[] = await response.json();
 

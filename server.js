@@ -43,7 +43,6 @@ app.get('/api/blogs', (req, res) => {
 });
 
 // Endpoint do pobierania pojedynczego blogu
-// Endpoint do pobierania pojedynczego blogu
 app.get('/api/blogs/:id', (req, res) => {
 	const blogId = parseInt(req.params.id); // Konwertuj na liczbę
 	const blog = dbData.blogs.find((blog) => blog.id === blogId);
