@@ -26,9 +26,31 @@ app.get('/api/projects', (req, res) => {
 	res.json(dbData.projects);
 });
 
+// Endpoint do pobierania pojedynczego projektu
+app.get('/api/projects/:id', (req, res) => {
+	const projectId = req.params.id;
+	const project = dbData.projects.find((project) => project.id === projectId);
+	if (project) {
+		res.json(project);
+	} else {
+		res.status(404).json({ message: 'Projekt nie znaleziony' });
+	}
+});
+
 // Endpoint do pobierania blogów
 app.get('/api/blogs', (req, res) => {
 	res.json(dbData.blogs);
+});
+
+// Endpoint do pobierania pojedynczego blogu
+app.get('/api/blogs/:id', (req, res) => {
+	const blogId = req.params.id;
+	const blog = dbData.blogs.find((blog) => blog.id === blogId);
+	if (blog) {
+		res.json(blog);
+	} else {
+		res.status(404).json({ message: 'Blog nie znaleziony' });
+	}
 });
 
 // Uruchomienie serwera

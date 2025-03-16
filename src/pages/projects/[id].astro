@@ -3,7 +3,7 @@
 import NewLayout from "../../layouts/newLayout.astro";
 
 const { id } = Astro.params;
-const response = await fetch(`http://localhost:5000/projects/${id}`);
+const response = await fetch(`https://astroproject-production.up.railway.app/api/projects/${id}`);
 const project = await response.json();
 
 
