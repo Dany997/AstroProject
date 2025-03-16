@@ -1,5 +1,5 @@
 import express from 'express';
-import fs from 'fs/promises'; // Użyj fs/promises dla ES6
+import fs from 'fs/promises';
 import cors from 'cors';
 
 const app = express();
@@ -17,23 +17,31 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Wczytanie danych z db.json
-const dbData = JSON.parse(await fs.readFile('db.json', 'utf8'));
+// Funkcja asynchronicznego wczytywania danych
+const loadDB = async () => {
+	try {
+		const data = await fs.readFile('db.json', 'utf8');
+		return JSON.parse(data);
+	} catch (error) {
+		console.error('Błąd wczytywania db.json:', error);
+		return null;
+	}
+};
 
-// Endpoint do sprawdzenia, czy API działa
-app.get('/', (req, res) => {
-	res.send('API działa poprawnie!');
-});
-
-// Endpoint do pobierania projektów
-app.get('/api/projects', (req, res) => {
+// Obsługa requestów z danymi
+app.get('/api/projects', async (req, res) => {
+	const dbData = await loadDB();
+	if (!dbData) return res.status(500).json({ message: 'Błąd serwera' });
 	res.json(dbData.projects);
 });
 
-// Endpoint do pobierania pojedynczego projektu
-app.get('/api/projects/:id', (req, res) => {
-	const projectId = parseInt(req.params.id); // Konwertuj na liczbę
+app.get('/api/projects/:id', async (req, res) => {
+	const dbData = await loadDB();
+	if (!dbData) return res.status(500).json({ message: 'Błąd serwera' });
+
+	const projectId = parseInt(req.params.id);
 	const project = dbData.projects.find((project) => project.id === projectId);
+
 	if (project) {
 		res.json(project);
 	} else {
@@ -41,24 +49,7 @@ app.get('/api/projects/:id', (req, res) => {
 	}
 });
 
-// Endpoint do pobierania blogów
-app.get('/api/blogs', (req, res) => {
-	res.json(dbData.blogs);
-});
-
-// Endpoint do pobierania pojedynczego blogu
-// Endpoint do pobierania pojedynczego blogu
-app.get('/api/blogs/:id', (req, res) => {
-	const blogId = parseInt(req.params.id); // Konwertuj na liczbę
-	const blog = dbData.blogs.find((blog) => blog.id === blogId);
-	if (blog) {
-		res.json(blog);
-	} else {
-		res.status(404).json({ message: 'Blog nie znaleziony' });
-	}
-});
-
-// Uruchomienie serwera
+// Start serwera
 app.listen(port, host, () => {
 	console.log(`Serwer działa na porcie ${port}`);
 });
