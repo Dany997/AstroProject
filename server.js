@@ -7,14 +7,14 @@ const port = 3000;
 
 app.use(express.json());
 
-// CORS
-app.use(
-	cors({
-		origin: process.env.FRONTEND_URL || 'http://localhost:4321',
-		methods: ['GET', 'POST', 'PUT', 'DELETE'],
-		credentials: true,
-	})
-);
+const corsOptions = {
+	origin: [
+		'http://localhost:4321',
+		'https://astroproject-production.up.railway.app',
+	],
+};
+
+app.use(cors(corsOptions));
 
 // Wczytanie danych z db.json
 const dbData = JSON.parse(await fs.readFile('db.json', 'utf8'));
@@ -29,7 +29,6 @@ app.get('/api/projects', (req, res) => {
 	res.json(dbData.projects);
 });
 
-// Endpoint do pobierania pojedynczego projektu
 // Endpoint do pobierania pojedynczego projektu
 app.get('/api/projects/:id', (req, res) => {
 	const projectId = parseInt(req.params.id); // Konwertuj na liczbę
