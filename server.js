@@ -16,6 +16,11 @@ app.use(cors(corsOptions));
 // Wczytanie danych z db.json
 const dbData = JSON.parse(await fs.readFile('db.json', 'utf8'));
 
+// Endpoint do sprawdzenia, czy API działa
+app.get('/', (req, res) => {
+	res.send('API działa poprawnie!');
+});
+
 // Endpoint do pobierania projektów
 app.get('/api/projects', (req, res) => {
 	res.json(dbData.projects);
