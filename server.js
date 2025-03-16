@@ -1,10 +1,10 @@
 import express from 'express';
 import fs from 'fs/promises'; // Użyj fs/promises dla ES6
 import cors from 'cors';
+import path from 'path';
 
 const app = express();
-const port = 3000;
-
+const port = process.env.PORT || 3000;
 app.use(express.json());
 
 const corsOptions = {
@@ -12,6 +12,10 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+// Middleware do obsługi statycznych plików
+const distPath = path.join(__dirname, 'dist');
+app.use(express.static(distPath));
 
 // Wczytanie danych z db.json
 const dbData = JSON.parse(await fs.readFile('db.json', 'utf8'));
