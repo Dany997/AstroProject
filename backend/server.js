@@ -1,6 +1,6 @@
-import express from 'express';
-import cors from 'cors';
-import jsonServer from 'json-server';
+const express = require('express');
+const cors = require('cors');
+const jsonServer = require('json-server');
 
 const app = express();
 const router = jsonServer.router('db.json'); // Podłączenie do pliku db.json
