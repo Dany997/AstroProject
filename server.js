@@ -3,7 +3,8 @@ import fs from 'fs/promises'; // Użyj fs/promises dla ES6
 import cors from 'cors';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 8080;
+const host = '0.0.0.0';
 
 app.use(express.json());
 
@@ -58,6 +59,6 @@ app.get('/api/blogs/:id', (req, res) => {
 });
 
 // Uruchomienie serwera
-app.listen(port, () => {
+app.listen(port, host, () => {
 	console.log(`Serwer działa na porcie ${port}`);
 });
