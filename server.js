@@ -10,7 +10,9 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 const corsOptions = {
-	origin: ['http://localhost:4321'], // Zezwalaj tylko na localhost:4321
+	origin: process.env.FRONTEND_URL || 'http://localhost:4321',
+	methods: ['GET', 'POST', 'PUT', 'DELETE'],
+	credentials: true,
 };
 
 app.use(cors(corsOptions));
