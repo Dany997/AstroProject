@@ -1,10 +1,12 @@
 import express from 'express';
 import fs from 'fs/promises'; // Użyj fs/promises dla ES6
 import cors from 'cors';
+import { createServer } from 'node:http';
+import { handler } from './dist/server/entry.mjs';
 
 const app = express();
-const port = 3000;
-
+const PORT = process.env.PORT || 8000;
+const server = createServer(handler);
 app.use(express.json());
 
 const corsOptions = {
@@ -54,6 +56,6 @@ app.get('/api/blogs/:id', (req, res) => {
 });
 
 // Uruchomienie serwera
-app.listen(port, () => {
-	console.log(`Serwer działa na porcie ${port}`);
+server.listen(PORT, () => {
+	console.log(`Serwer działa na porcie ${PORT}`);
 });
