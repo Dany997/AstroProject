@@ -8,9 +8,8 @@ const port = 3000;
 app.use(express.json());
 
 const corsOptions = {
-	origin: '*', // 🔥 Zezwól na wszystko (tymczasowo)
+	origin: ['http://localhost:4321'], // Zezwalaj tylko na localhost:4321
 };
-app.use(cors(corsOptions));
 
 app.use(cors(corsOptions));
 
